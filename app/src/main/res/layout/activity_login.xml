@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
+    tools:context="br.com.beering.beerme.ui.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/txtUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:hint="email"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtUserEmail"
+        android:layout_alignRight="@+id/txtUserEmail"
+        android:layout_below="@+id/txtUserEmail"
+        android:layout_marginTop="38dp"
+        android:hint="@string/senha"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/chkLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtPassword"
+        android:layout_alignRight="@+id/txtPassword"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/txtPassword"
+        android:text="@string/logado" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/chkLogin"
+        android:layout_alignLeft="@+id/chkLogin"
+        android:layout_alignRight="@+id/chkLogin"
+        android:layout_alignStart="@+id/chkLogin"
+        android:layout_below="@+id/chkLogin"
+        android:layout_marginTop="38dp"
+        android:text="@string/logar" />
+
+    <TextView
+        android:id="@+id/txtCadastroUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:text="@string/newuser"
+        android:gravity="center_horizontal" android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

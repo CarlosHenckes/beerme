@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.BeersFragment">
+
+    <RelativeLayout
+        android:id="@+id/formquery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:backgroundTint="@color/splashBG"
+        android:gravity="center_horizontal"
+        android:backgroundTintMode="screen"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/inputQuery"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:hint="@string/querysearch"/>
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPesquisar"
+            android:layout_toRightOf="@id/inputQuery"
+            android:layout_weight="1"
+            android:text="@string/btnPesquisar" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvBeers"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/loading"/>
+    <include layout="@layout/erro"/>
+
+</FrameLayout>

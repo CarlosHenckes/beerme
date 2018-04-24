@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name" translatable="false">BeerMe</string>
+    <string name="senha">senha</string>
+    <string name="logar">Logar</string>
+    <string name="nav_cervejas">Cervejas</string>
+    <string name="nav_cadastrar">Cadastrar</string>
+    <string name="nav_sobre">Sobre</string>
+    <string name="btnPesquisar">OK</string>
+    <string name="tipo">TIPO</string>
+    <string name="origem">ORIGEM</string>
+    <string name="cervejaria">CERVEJARIA</string>
+    <string name="sair">Sair</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="inputRotulo">Rotulo</string>
+    <string name="inputCervejaria">Cervejaria</string>
+    <string name="inputPais">Pais</string>
+    <string name="inputTipo">Tipo</string>
+    <string name="loginErrorMsg">Usuário ou senha incorretos</string>
+    <string name="formCadastro">Cadastrar nova cerveja</string>
+    <string name="logado">Manter-me logado</string>
+    <string name="inputAlcool">Teor Alcoólico</string>
+    <string name="inputURL">inputURL</string>
+    <string name="msgErrorDelete">Esse item não pôde ser excluído</string>
+    <string name="querysearch">Pesquisar rotulo</string>
+    <string name="titleuser">Cadastrar Novo Usuário</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="newuser">Cadastrar usuário</string>
+    <string name="msgErrorLoadingBeers">Erro no carregamento</string>
+    <string name="msgloading">ESTAMOS CARREGANDO ...</string>
+    <string name="btnDeletar">DELETAR</string>
+    <string name="btnSalvar">SALVAR</string>
+    <string name="appversion" translatable="false">V-1.0.0.1</string>
+</resources>

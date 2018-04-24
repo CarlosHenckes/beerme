@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="senha">password</string>
+    <string name="logar">Login</string>
+    <string name="nav_cervejas">Beers</string>
+    <string name="nav_cadastrar">New</string>
+    <string name="nav_sobre">About</string>
+    <string name="btnPesquisar">GO</string>
+    <string name="tipo">TYPE</string>
+    <string name="origem">ORIGIN</string>
+    <string name="cervejaria">BREWERY</string>
+    <string name="sair">Logout</string>
+    <string name="inputPais">Country</string>
+    <string name="inputTipo">Type</string>
+    <string name="loginErrorMsg">User or email invalid</string>
+    <string name="formCadastro">File new beer</string>
+    <string name="inputRotulo">Label</string>
+    <string name="inputCervejaria">Brewery</string>
+    <string name="logado">Keep me logged</string>
+    <string name="inputAlcool">Alcoholic grade</string>
+    <string name="inputURL">inputURL</string>
+    <string name="msgErrorDelete">This item could not be deleted</string>
+    <string name="querysearch">Search for label</string>
+    <string name="titleuser">File New User</string>
+    <string name="cadastrar">Subscribe</string>
+    <string name="newuser">Subscribe New User</string>
+    <string name="msgErrorLoadingBeers">Error on loading</string>
+    <string name="msgloading">LOADING...</string>
+    <string name="btnDeletar">DELETE</string>
+    <string name="btnSalvar">SAVE</string>
+</resources>
