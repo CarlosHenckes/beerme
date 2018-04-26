@@ -39,4 +39,5 @@
     <string name="msgCadRealizado">Cadastro realizado</string>
     <string name="dialogGaleria">Galeria de fotos</string>
     <string name="dialogCamera">Câmera</string>
+    <string name="dialogTitle">Selecionar ação</string>
 </resources>

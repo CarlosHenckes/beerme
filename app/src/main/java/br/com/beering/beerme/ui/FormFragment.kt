@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_CANCELED
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -32,10 +33,8 @@ import java.util.*
 class FormFragment : Fragment() {
 
     var biro: Beer = Beer("","","",0F, "","","")
-    var myStrings = arrayOf("Pilsen", "Schwarzbier", "Bock", "Weissbier", "Stout", "Dubbel", "Faro", "Geuze", "Kriek")
-
+    lateinit var myStrings: Array<String>
     var imgview: ImageView? = null
-
     private var filePath: Uri? = null
 
     // vars firebase
@@ -48,6 +47,8 @@ class FormFragment : Fragment() {
 
         storage = FirebaseStorage.getInstance()
         storageReference = storage!!.reference
+
+        myStrings = resources.getStringArray(R.array.tipos)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -202,8 +203,8 @@ class FormFragment : Fragment() {
 
     private fun showPictureDialog(){
         val pictureDialog = AlertDialog.Builder(context)
-        pictureDialog.setTitle("Select Action")
-        val pictureDialogItems = arrayOf(R.string.dialogGaleria.toString(),R.string.dialogCamera.toString())
+        pictureDialog.setTitle(R.string.dialogTitle)
+        val pictureDialogItems = resources.getStringArray(R.array.imageResource)
         pictureDialog.setItems(pictureDialogItems){
             dialog, which ->
             when (which){

@@ -41,4 +41,5 @@
     <string name="dialogGaleria">Gallery</string>
     <string name="dialogCamera">Camera</string>
     <string name="appversion" translatable="false">V-1.0.0.1</string>
+    <string name="dialogTitle">Select action</string>
 </resources>

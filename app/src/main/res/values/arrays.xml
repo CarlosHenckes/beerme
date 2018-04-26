@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tipos">
+        <item>Pilsen</item>
+        <item>Schwarzbier</item>
+        <item>Bock</item>
+        <item>Weissbier</item>
+        <item>Stout</item>
+        <item>Dubbel</item>
+        <item>Faro</item>
+        <item>Geuze</item>
+        <item>Kriek</item>
+    </array>
+    <string-array name="imageResource">
+        <item>Gallery</item>
+        <item>Camera</item>
+    </string-array>
+</resources>
