@@ -30,6 +30,7 @@ class BeersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        inputQuery.clearFocus()
         listarCervejas()
 
         btnPesquisar.setOnClickListener{
@@ -61,7 +62,7 @@ class BeersFragment : Fragment() {
             override fun onFailure(call: Call<List<Beer>>?, t: Throwable?) {
                 loading.visibility = View.GONE
                 containerErro.visibility = View.VISIBLE
-                Log.d("ERRO",t?.message)
+                tvMensagemErro.setText(t?.message)
             }
 
             override fun onResponse(call: Call<List<Beer>>?, response: Response<List<Beer>>?) {
@@ -72,7 +73,7 @@ class BeersFragment : Fragment() {
                 } else {
                     loading.visibility = View.GONE
                     containerErro.visibility = View.VISIBLE
-                    Log.d("ERRO", R.string.msgErrorLoadingBeers.toString())
+                    tvMensagemErro.setText(R.string.msgErrorLoadingBeers.toString())
                 }
             }
         })

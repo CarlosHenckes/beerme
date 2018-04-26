@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "787484489038",
+    "firebase_url": "https://beerme-ce755.firebaseio.com",
+    "project_id": "beerme-ce755",
+    "storage_bucket": "beerme-ce755.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787484489038:android:860540888c8ec683",
+        "android_client_info": {
+          "package_name": "br.com.beering.beerme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787484489038-6qnc8n0qa617ff7b61ceg6gurg3rmjtl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.beering.beerme",
+            "certificate_hash": "54d65470295eaabd5b612e7f02b4209796094d6b"
+          }
+        },
+        {
+          "client_id": "787484489038-tpv63fbchms5c7lp55nukn43jabi31ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2wG9XZ6j6eawexsaTKyP36ghF09BABWY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787484489038-tpv63fbchms5c7lp55nukn43jabi31ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

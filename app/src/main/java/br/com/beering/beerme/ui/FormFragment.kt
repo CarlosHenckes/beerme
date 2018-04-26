@@ -1,16 +1,14 @@
 package br.com.beering.beerme.ui
 
-import android.app.Activity
+import android.app.Activity.RESULT_CANCELED
+import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.media.Image
-import android.media.MediaScannerConnection
+import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,11 +19,14 @@ import br.com.beering.beerme.R
 import br.com.beering.beerme.api.BeerAPI
 import br.com.beering.beerme.api.RetrofiClient
 import br.com.beerme.beerme.model.Beer
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_form.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.*
 import java.util.*
 
 class FormFragment : Fragment() {
@@ -33,21 +34,28 @@ class FormFragment : Fragment() {
     var biro: Beer = Beer("","","",0F, "","","")
     var myStrings = arrayOf("Pilsen", "Schwarzbier", "Bock", "Weissbier", "Stout", "Dubbel", "Faro", "Geuze", "Kriek")
 
-   // var btn: Button? = null
     var imgview: ImageView? = null
+
+    private var filePath: Uri? = null
+
+    // vars firebase
+    internal var storage: FirebaseStorage? = null
+    internal var storageReference: StorageReference? = null
+    internal var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        storage = FirebaseStorage.getInstance()
+        storageReference = storage!!.reference
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(R.layout.fragment_form, container, false)
-        //btn = view?.findViewById(R.id.btnGetPhoto) as Button
         imgview = view?.findViewById(R.id.iv) as ImageView
 
         return view
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,10 +71,14 @@ class FormFragment : Fragment() {
             inputAlcool.editText?.setText(biro.teorAlcoolico.toString())
             inputPais.editText?.setText(biro.pais)
             inputTipo.setSelection(makeSelection(biro.tipo))
-            //inputURL.editText?.setText(biro.urlRotulo)
-            val f = File(biro.urlRotulo)
-            val b = BitmapFactory.decodeStream(FileInputStream(f))
-            imgview!!.setImageBitmap(b)
+
+            if (!biro.urlRotulo.isNullOrEmpty()){
+
+                Picasso.get().load(biro.urlRotulo)
+                        .placeholder(R.drawable.load)
+                        .error(R.drawable.nolabel)
+                        .into(imgview)
+            }
 
             btnDelete.visibility = View.VISIBLE
         }
@@ -98,12 +110,24 @@ class FormFragment : Fragment() {
             val api = RetrofiClient.getInstance().create(BeerAPI::class.java)
             var mainContext = context as MainActivity
 
+            // make some check
+            if (inputRotulo.editText?.text.toString().isNullOrEmpty()){
+                Toast.makeText(context, R.string.msgRotuloVazio, Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             biro.rotulo = inputRotulo.editText?.text.toString()
             biro.cervejaria = inputCervejaria.editText?.text.toString()
-            biro.teorAlcoolico = inputAlcool.editText?.text.toString().toFloat()
+            var tmpAlcool = inputAlcool.editText?.text.toString()
+            try {
+                biro.teorAlcoolico = tmpAlcool.toFloat()
+
+            } catch (e: NumberFormatException){
+                Toast.makeText(context, R.string.msgAlcoolNotNumber, Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             biro.pais = inputPais.editText?.text.toString()
             biro.tipo = inputTipo.selectedItem.toString()
-            //biro.urlRotulo = inputURL.editText?.text.toString()
 
             if (biro.id.isNullOrEmpty()){
                 // create new beer
@@ -148,7 +172,6 @@ class FormFragment : Fragment() {
         inputPais.editText?.setText("")
         inputAlcool.editText?.setText("")
         inputTipo.setSelection(0)
-        //inputURL.editText?.setText("")
     }
 
     fun makeSelection(str: String)
@@ -163,57 +186,80 @@ class FormFragment : Fragment() {
         return 0
     }
 
-    fun saveImage(myBitmap: Bitmap):String {
-        val bytes = ByteArrayOutputStream()
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
-        val wallpaperDirectory = File(
-                (Environment.getExternalStorageDirectory()).toString() + IMAGE_DIRECTORY)
-
-        if (!wallpaperDirectory.exists())
-        {
-
-            wallpaperDirectory.mkdirs()
-        }
-
-        try
-        {
-            Log.d("heel",wallpaperDirectory.toString())
-            val f = File(wallpaperDirectory, ((Calendar.getInstance()
-                    .getTimeInMillis()).toString() + ".jpg"))
-            f.createNewFile()
-            val fo = FileOutputStream(f)
-            fo.write(bytes.toByteArray())
-            MediaScannerConnection.scanFile(context,
-                    arrayOf(f.getPath()),
-                    arrayOf("image/jpeg"), null)
-            fo.close()
-            Log.d("TAG", "File Saved::--->" + f.getAbsolutePath())
-            biro.urlRotulo = f.getAbsolutePath()
-            return f.getAbsolutePath()
-        }
-        catch (e1: IOException) {
-            e1.printStackTrace()
-        }
-
-        return ""
+    private fun btnClick(v: View) {
+        showPictureDialog()
     }
 
-    private fun btnClick(v: View) {
+    fun pictureFromGallery(){
+        val galIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(galIntent, 124)
+    }
+
+    fun pictureFromCamera(){
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, 123)
+    }
 
+    private fun showPictureDialog(){
+        val pictureDialog = AlertDialog.Builder(context)
+        pictureDialog.setTitle("Select Action")
+        val pictureDialogItems = arrayOf("GALLERY","CAMERA")
+        pictureDialog.setItems(pictureDialogItems){
+            dialog, which ->
+            when (which){
+                0 -> pictureFromGallery()
+                1 -> pictureFromCamera()
+            }
+        }
+        pictureDialog.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
+
+        var mainContext = context as MainActivity
+
+        if(resultCode == RESULT_CANCELED){
+            return
+        }
+
         if (requestCode == 123){
             val thumbnail = data!!.extras!!.get("data") as Bitmap
-            saveImage(thumbnail)
+            //saveImage(thumbnail)
+            filePath = data.data
+            upload()
             imgview?.setImageBitmap(thumbnail)
+        } else if (requestCode == 124){
+            filePath = data!!.data
+            val thumbnail = MediaStore.Images.Media.getBitmap(mainContext.contentResolver, data!!.data)
+            imgview?.setImageBitmap(thumbnail)
+            upload()
         }
     }
 
-    companion object {
-        private val IMAGE_DIRECTORY = "/beerme"
+    fun upload(){
+        if(filePath != null){
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle(R.string.upCourse)
+            progressDialog.show()
+
+            val imageRef = storageReference!!.child("images/" + UUID.randomUUID().toString())
+            imageRef.putFile(filePath!!)
+                    .addOnSuccessListener { taskSnapshot ->
+                        val name = taskSnapshot.metadata!!.name
+                        val url = taskSnapshot.downloadUrl.toString()
+                        biro.urlRotulo = url + name!!
+                        progressDialog.dismiss()
+                        Toast.makeText(context, R.string.upokresult, Toast.LENGTH_SHORT).show()
+                    }
+                    . addOnFailureListener{
+                        progressDialog.dismiss()
+                        Toast.makeText(context, R.string.uperrormessage, Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnProgressListener { taskSnapshot ->
+                        val progress = 100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
+                        progressDialog.setMessage("" + progress.toInt() + "%...")
+                    }
+        }
     }
 }

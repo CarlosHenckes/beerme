@@ -24,7 +24,7 @@ class UserActivity : AppCompatActivity() {
             var txtPass: String = txtPass.text.toString()
 
             if(txtEmail.isNullOrEmpty() || txtPass.isNullOrEmpty()){
-                Toast.makeText(this, "Preencher ambos os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.msgCampoVazio, Toast.LENGTH_SHORT).show()
 
             } else {
                 val api = RetrofiClient.getInstance().create(UserAPI::class.java)
@@ -36,7 +36,7 @@ class UserActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
-                        Toast.makeText(this@UserActivity, "Cadastro realizado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UserActivity, R.string.msgCadRealizado, Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@UserActivity, LoginActivity::class.java)
                         startActivity(intent)
                     }

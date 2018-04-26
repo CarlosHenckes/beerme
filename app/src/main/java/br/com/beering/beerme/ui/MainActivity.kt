@@ -39,6 +39,4 @@ class MainActivity : AppCompatActivity() {
         changeFragment(BeersFragment())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
-
-
 }

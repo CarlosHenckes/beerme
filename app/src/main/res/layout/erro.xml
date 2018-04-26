@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Garrafa vazia"
+        android:text="@string/msgErrorEmptyBottom"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textAlignment="center"/>
@@ -25,6 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvMensagemErro"
-        android:text="Aqui está a mensagem de erro"/>
+        android:text="@string/msgErrorPage"/>
 
 </LinearLayout>

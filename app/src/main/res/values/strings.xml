@@ -31,4 +31,13 @@
     <string name="btnDeletar">DELETAR</string>
     <string name="btnSalvar">SALVAR</string>
     <string name="appversion" translatable="false">V-1.0.0.1</string>
+    <string name="msgErrorEmptyBottom">Garafa vazia</string>
+    <string name="msgErrorPage">Erro</string>
+    <string name="upCourse">Enviando...</string>
+    <string name="upokresult">Enviado</string>
+    <string name="uperrormessage">Falhou!</string>
+    <string name="msgRotuloVazio">Preencha o campo Rótulo</string>
+    <string name="msgAlcoolNotNumber">Teor alcoólico deve ser numérico</string>
+    <string name="msgCampoVazio">Preencher todos os campos</string>
+    <string name="msgCadRealizado">Cadastro realizado</string>
 </resources>

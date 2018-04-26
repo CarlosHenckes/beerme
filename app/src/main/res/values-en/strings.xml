@@ -28,4 +28,13 @@
     <string name="msgloading">LOADING...</string>
     <string name="btnDeletar">DELETE</string>
     <string name="btnSalvar">SAVE</string>
+    <string name="msgErrorEmptyBottom">Empty bottom</string>
+    <string name="msgErrorPage">Error</string>
+    <string name="upCourse">Uploading...</string>
+    <string name="upokresult">Uploaded</string>
+    <string name="uperrormessage">Failed!</string>
+    <string name="msgRotuloVazio">Fill up label field</string>
+    <string name="msgAlcoolNotNumber">Grade must be a number</string>
+    <string name="msgCampoVazio">Fill all fields</string>
+    <string name="msgCadRealizado">User subscribed</string>
 </resources>

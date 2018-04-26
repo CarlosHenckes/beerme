@@ -4,4 +4,4 @@
     android:toAlpha="1.0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:duration="3000" />
+    android:duration="4000" />

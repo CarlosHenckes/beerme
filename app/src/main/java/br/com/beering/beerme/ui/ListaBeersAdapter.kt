@@ -1,7 +1,6 @@
 package br.com.beering.beerme.ui
 
 import android.content.Context
-import android.graphics.BitmapFactory
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.beering.beerme.R
 import br.com.beerme.beerme.model.Beer
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_beer.view.*
-import java.io.File
-import java.io.FileInputStream
 
 class ListaBeersAdapter(private val beers: List<Beer>,
                         private val context: Context)
@@ -50,15 +48,10 @@ class ListaBeersAdapter(private val beers: List<Beer>,
                         R.drawable.nolabel))
 
             } else {
-
-                val f = File(beer.urlRotulo)
-                if(f.exists()==true) {
-                    val b = BitmapFactory.decodeStream(FileInputStream(f))
-                    itemView.ivFoto!!.setImageBitmap(b)
-                } else {
-                    itemView.ivFoto.setImageDrawable(ContextCompat.getDrawable(itemView.context,
-                            R.drawable.nolabel))
-                }
+                Picasso.get().load(beer.urlRotulo)
+                        .placeholder(R.drawable.load)
+                        .error(R.drawable.nolabel)
+                        .into(itemView.ivFoto)
             }
 
             itemView.setOnClickListener{

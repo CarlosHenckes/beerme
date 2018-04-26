@@ -5,35 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.BeersFragment">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/formquery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:backgroundTint="@color/splashBG"
+        android:backgroundTintMode="add"
         android:gravity="center_horizontal"
-        android:backgroundTintMode="screen"
-        android:orientation="horizontal">
+        android:padding="8dp"
+        android:orientation="horizontal"
+        android:background="@color/splashBG">
 
         <EditText
             android:id="@+id/inputQuery"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight="20"
-            android:hint="@string/querysearch"/>
+            android:background="@color/splashBG"
+            android:hint="@string/querysearch" />
 
         <Button
+            android:id="@+id/btnPesquisar"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPesquisar"
             android:layout_toRightOf="@id/inputQuery"
             android:layout_weight="1"
+            android:backgroundTint="@color/splashBG"
             android:text="@string/btnPesquisar" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvBeers"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="66dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
