@@ -1,43 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">BeerMe</string>
-    <string name="senha">senha</string>
-    <string name="logar">Logar</string>
-    <string name="nav_cervejas">Cervejas</string>
-    <string name="nav_cadastrar">Cadastrar</string>
-    <string name="nav_sobre">Sobre</string>
-    <string name="btnPesquisar">OK</string>
-    <string name="tipo">TIPO</string>
-    <string name="origem">ORIGEM</string>
-    <string name="cervejaria">CERVEJARIA</string>
-    <string name="sair">Sair</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="inputRotulo">Rotulo</string>
-    <string name="inputCervejaria">Cervejaria</string>
-    <string name="inputPais">Pais</string>
-    <string name="inputTipo">Tipo</string>
-    <string name="loginErrorMsg">Usuário ou senha incorretos</string>
-    <string name="formCadastro">Cadastrar nova cerveja</string>
-    <string name="logado">Manter-me logado</string>
-    <string name="inputAlcool">Teor Alcoólico</string>
+    <string name="senha">password</string>
+    <string name="logar">Login</string>
+    <string name="nav_cervejas">Beers</string>
+    <string name="nav_cadastrar">New</string>
+    <string name="nav_sobre">About</string>
+    <string name="btnPesquisar">GO</string>
+    <string name="tipo">TYPE</string>
+    <string name="origem">ORIGIN</string>
+    <string name="cervejaria">BREWERY</string>
+    <string name="sair">Logout</string>
+    <string name="inputPais">Country</string>
+    <string name="inputTipo">Type</string>
+    <string name="loginErrorMsg">User or email invalid</string>
+    <string name="formCadastro">File new beer</string>
+    <string name="inputRotulo">Label</string>
+    <string name="inputCervejaria">Brewery</string>
+    <string name="logado">Keep me logged</string>
+    <string name="inputAlcool">Alcoholic grade</string>
     <string name="inputURL">inputURL</string>
-    <string name="msgErrorDelete">Esse item não pôde ser excluído</string>
-    <string name="querysearch">Pesquisar rotulo</string>
-    <string name="titleuser">Cadastrar Novo Usuário</string>
-    <string name="cadastrar">Cadastrar</string>
-    <string name="newuser">Cadastrar usuário</string>
-    <string name="msgErrorLoadingBeers">Erro no carregamento</string>
-    <string name="msgloading">ESTAMOS CARREGANDO ...</string>
-    <string name="btnDeletar">DELETAR</string>
-    <string name="btnSalvar">SALVAR</string>
+    <string name="msgErrorDelete">This item could not be deleted</string>
+    <string name="querysearch">Search for label</string>
+    <string name="titleuser">File New User</string>
+    <string name="cadastrar">Subscribe</string>
+    <string name="newuser">Subscribe New User</string>
+    <string name="msgErrorLoadingBeers">Error on loading</string>
+    <string name="msgloading">LOADING...</string>
+    <string name="btnDeletar">DELETE</string>
+    <string name="btnSalvar">SAVE</string>
+    <string name="msgErrorEmptyBottom">Empty bottom</string>
+    <string name="msgErrorPage">Error</string>
+    <string name="upCourse">Uploading...</string>
+    <string name="upokresult">Uploaded</string>
+    <string name="uperrormessage">Failed!</string>
+    <string name="msgRotuloVazio">Fill up label field</string>
+    <string name="msgAlcoolNotNumber">Grade must be a number</string>
+    <string name="msgCampoVazio">Fill all fields</string>
+    <string name="msgCadRealizado">User subscribed</string>
+    <string name="dialogGaleria">Gallery</string>
+    <string name="dialogCamera">Camera</string>
     <string name="appversion" translatable="false">V-1.0.0.1</string>
-    <string name="msgErrorEmptyBottom">Garafa vazia</string>
-    <string name="msgErrorPage">Erro</string>
-    <string name="upCourse">Enviando...</string>
-    <string name="upokresult">Enviado</string>
-    <string name="uperrormessage">Falhou!</string>
-    <string name="msgRotuloVazio">Preencha o campo Rótulo</string>
-    <string name="msgAlcoolNotNumber">Teor alcoólico deve ser numérico</string>
-    <string name="msgCampoVazio">Preencher todos os campos</string>
-    <string name="msgCadRealizado">Cadastro realizado</string>
 </resources>

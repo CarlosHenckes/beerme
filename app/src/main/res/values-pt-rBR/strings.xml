@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="senha">senha</string>
+    <string name="logar">Logar</string>
+    <string name="nav_cervejas">Cervejas</string>
+    <string name="nav_cadastrar">Cadastrar</string>
+    <string name="nav_sobre">Sobre</string>
+    <string name="btnPesquisar">OK</string>
+    <string name="tipo">TIPO</string>
+    <string name="origem">ORIGEM</string>
+    <string name="cervejaria">CERVEJARIA</string>
+    <string name="sair">Sair</string>
+    <string name="inputRotulo">Rotulo</string>
+    <string name="inputCervejaria">Cervejaria</string>
+    <string name="inputPais">Pais</string>
+    <string name="inputTipo">Tipo</string>
+    <string name="loginErrorMsg">Usuário ou senha incorretos</string>
+    <string name="formCadastro">Cadastrar nova cerveja</string>
+    <string name="logado">Manter-me logado</string>
+    <string name="inputAlcool">Teor Alcoólico</string>
+    <string name="inputURL">inputURL</string>
+    <string name="msgErrorDelete">Esse item não pôde ser excluído</string>
+    <string name="querysearch">Pesquisar rotulo</string>
+    <string name="titleuser">Cadastrar Novo Usuário</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="newuser">Cadastrar usuário</string>
+    <string name="msgErrorLoadingBeers">Erro no carregamento</string>
+    <string name="msgloading">ESTAMOS CARREGANDO ...</string>
+    <string name="btnDeletar">DELETAR</string>
+    <string name="btnSalvar">SALVAR</string>
+    <string name="msgErrorEmptyBottom">Garafa vazia</string>
+    <string name="msgErrorPage">Erro</string>
+    <string name="upCourse">Enviando...</string>
+    <string name="upokresult">Enviado</string>
+    <string name="uperrormessage">Falhou!</string>
+    <string name="msgRotuloVazio">Preencha o campo Rótulo</string>
+    <string name="msgAlcoolNotNumber">Teor alcoólico deve ser numérico</string>
+    <string name="msgCampoVazio">Preencher todos os campos</string>
+    <string name="msgCadRealizado">Cadastro realizado</string>
+    <string name="dialogGaleria">Galeria de fotos</string>
+    <string name="dialogCamera">Câmera</string>
+</resources>

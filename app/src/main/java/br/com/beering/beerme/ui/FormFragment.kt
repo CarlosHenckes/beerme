@@ -203,7 +203,7 @@ class FormFragment : Fragment() {
     private fun showPictureDialog(){
         val pictureDialog = AlertDialog.Builder(context)
         pictureDialog.setTitle("Select Action")
-        val pictureDialogItems = arrayOf("GALLERY","CAMERA")
+        val pictureDialogItems = arrayOf(R.string.dialogGaleria.toString(),R.string.dialogCamera.toString())
         pictureDialog.setItems(pictureDialogItems){
             dialog, which ->
             when (which){
